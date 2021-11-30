@@ -1,0 +1,25 @@
+db-secrets: 
+  postgresPassword: ""
+  postgresRootPassword: ""
+
+postgresql:
+  existingSecret: db-secrets
+  postgresqlDatabase: todo
+
+backend:
+  db:
+    user: app
+    password: shitexamplechangeme
+  image:
+    tag: "ci-and-infrastructure-latest"
+  config:
+    corsAllowedOrigins: "BRANCH.dev.tinakori.dev"
+
+frontend:
+  ingress:
+    enabled: true
+    hosts:
+  backendConfig:
+    host: "api.BRANCH.dev.tinakori.dev"
+  image:
+    tag: ""

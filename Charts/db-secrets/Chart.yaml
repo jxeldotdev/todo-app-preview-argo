@@ -1,0 +1,5 @@
+apiVersion: v2
+name: todo-app-preview-secrets
+description: PostgreSQL Secrets for todo-app-preview
+type: application
+version: 0.1.0

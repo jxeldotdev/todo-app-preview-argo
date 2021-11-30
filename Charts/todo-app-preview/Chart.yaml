@@ -1,0 +1,18 @@
+apiVersion: v2
+name: todo-app-preview
+description: Chart with Bitnami PostgreSQL chart dependency
+type: application
+version: 0.1.0
+appVersion: "1.0"
+dependencies:
+- name: db-secrets
+  file: ../db-secrets
+- name: postgresql
+  version: 14.1.0
+  repository: https://kubernetes.github.io/ingress-nginx
+- name: todo-backend
+  version: 0.1.0
+  repository: https://jxeldotdev.github.io/helm-charts
+- name: todo-frontend-preview
+  repository: https://jxeldotdev.github.io/helm-charts
+  version: 0.1.0
