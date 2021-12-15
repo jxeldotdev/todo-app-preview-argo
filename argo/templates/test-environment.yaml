@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo-app-preview-test
+  namespace: todo-app-preview-test
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: todo-app-preview-test
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    path: Charts/todo-app-preview
+    repoURL: https://github.com/jxeldotdev/todo-app-preview-argo
+    targetRevision: HEAD
+    helm:
+      releaseName: todo-app-preview-test
+      valueFiles:
+      - values.yaml
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
